@@ -1,0 +1,445 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0033B0A00A874C689A48B0EB /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0033B0A00A874C689A48B0EC /* AppState.swift */; };
+		07EA01AB47A0490F9BD161B1 /* AppCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA01AB47A0490F9BD161B2 /* AppCommands.swift */; };
+		0AE60587FBED474494D9ADFD /* ClarityPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE60587FBED474494D9ADFE /* ClarityPopoverView.swift */; };
+		122FA7C20EF5405F9CFECC66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 122FA7C20EF5405F9CFECC67 /* Assets.xcassets */; };
+		184E6C4F575D4B92B5094369 /* PomodoroManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E6C4F575D4B92B509436A /* PomodoroManager.swift */; };
+		1F361B96DCC740CAAB5B85FA /* TaskReminderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F361B96DCC740CAAB5B85FB /* TaskReminderManager.swift */; };
+		3388D13088A44B408F9F7A9F /* PomodoroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3388D13088A44B408F9F7AA0 /* PomodoroView.swift */; };
+		42ED12B7D88C4D888ECB7F58 /* ClarityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ED12B7D88C4D888ECB7F59 /* ClarityApp.swift */; };
+		462572243F6E4131830956E8 /* AddTaskIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462572243F6E4131830956E9 /* AddTaskIntent.swift */; };
+		48B5019830B24CD3B064EEBE /* ReminderInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B5019830B24CD3B064EEBF /* ReminderInterval.swift */; };
+		5C62B9AD443A4B519D71B66A /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C62B9AD443A4B519D71B66B /* AddTaskView.swift */; };
+		68D1F3000FB14C8BA6011CE5 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D1F3000FB14C8BA6011CE6 /* TaskRow.swift */; };
+		9FF7D6509DA8412FB7EE6E60 /* PomodoroSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF7D6509DA8412FB7EE6E61 /* PomodoroSession.swift */; };
+		C577655353F7489DA354BDC0 /* ClarityTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C577655353F7489DA354BDC1 /* ClarityTask.swift */; };
+		C674E4B6BBC74CF7B8A608D5 /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674E4B6BBC74CF7B8A608D6 /* TasksView.swift */; };
+		CEC12AD4867B496B85D032F5 /* GlassCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC12AD4867B496B85D032F6 /* GlassCard.swift */; };
+		CFED0530BCEC439593B52050 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFED0530BCEC439593B52051 /* NotificationManager.swift */; };
+		E53CB10D1C52448A98DDCA55 /* PomodoroTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53CB10D1C52448A98DDCA56 /* PomodoroTimerView.swift */; };
+		F1A2B3C4D5E6F708192A3B4C /* ClarityPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A2B3C4D5E6F708192A3B4D /* ClarityPersistence.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0033B0A00A874C689A48B0EC /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		07EA01AB47A0490F9BD161B2 /* AppCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommands.swift; sourceTree = "<group>"; };
+		0AE60587FBED474494D9ADFE /* ClarityPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClarityPopoverView.swift; sourceTree = "<group>"; };
+		122FA7C20EF5405F9CFECC67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		184E6C4F575D4B92B509436A /* PomodoroManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroManager.swift; sourceTree = "<group>"; };
+		1F361B96DCC740CAAB5B85FB /* TaskReminderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskReminderManager.swift; sourceTree = "<group>"; };
+		3388D13088A44B408F9F7AA0 /* PomodoroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroView.swift; sourceTree = "<group>"; };
+		42ED12B7D88C4D888ECB7F59 /* ClarityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClarityApp.swift; sourceTree = "<group>"; };
+		4579C07681D3456296DE32A4 /* Clarity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clarity.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		462572243F6E4131830956E9 /* AddTaskIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskIntent.swift; sourceTree = "<group>"; };
+		48B5019830B24CD3B064EEBF /* ReminderInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderInterval.swift; sourceTree = "<group>"; };
+		5C62B9AD443A4B519D71B66B /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
+		68D1F3000FB14C8BA6011CE6 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
+		9FF7D6509DA8412FB7EE6E61 /* PomodoroSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroSession.swift; sourceTree = "<group>"; };
+		BB09BE9E6F3043C2B542C600 /* Clarity.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clarity.entitlements; sourceTree = "<group>"; };
+		C577655353F7489DA354BDC1 /* ClarityTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClarityTask.swift; sourceTree = "<group>"; };
+		C674E4B6BBC74CF7B8A608D6 /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
+		CEC12AD4867B496B85D032F6 /* GlassCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassCard.swift; sourceTree = "<group>"; };
+		CFED0530BCEC439593B52051 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		D6269AA53D344BE5BA91F6CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E53CB10D1C52448A98DDCA56 /* PomodoroTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroTimerView.swift; sourceTree = "<group>"; };
+		F1A2B3C4D5E6F708192A3B4D /* ClarityPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClarityPersistence.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9BD191D231E0481E96FFCEE0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A11111111111111111111111 /* Clarity */ = {
+			isa = PBXGroup;
+			children = (
+				A33333333333333333333333 /* App */,
+				A44444444444444444444444 /* Models */,
+				A55555555555555555555555 /* Views */,
+				A66666666666666666666666 /* Services */,
+				A77777777777777777777777 /* Intents */,
+				A88888888888888888888888 /* Components */,
+				122FA7C20EF5405F9CFECC67 /* Assets.xcassets */,
+				D6269AA53D344BE5BA91F6CE /* Info.plist */,
+				BB09BE9E6F3043C2B542C600 /* Clarity.entitlements */,
+			);
+			path = Clarity;
+			sourceTree = "<group>";
+		};
+		A22222222222222222222222 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4579C07681D3456296DE32A4 /* Clarity.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A33333333333333333333333 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				42ED12B7D88C4D888ECB7F59 /* ClarityApp.swift */,
+				0033B0A00A874C689A48B0EC /* AppState.swift */,
+				07EA01AB47A0490F9BD161B2 /* AppCommands.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A44444444444444444444444 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C577655353F7489DA354BDC1 /* ClarityTask.swift */,
+				48B5019830B24CD3B064EEBF /* ReminderInterval.swift */,
+				9FF7D6509DA8412FB7EE6E61 /* PomodoroSession.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A55555555555555555555555 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0AE60587FBED474494D9ADFE /* ClarityPopoverView.swift */,
+				A99999999999999999999999 /* Tasks */,
+				AAAA00000000000000000001 /* Pomodoro */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A66666666666666666666666 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CFED0530BCEC439593B52051 /* NotificationManager.swift */,
+				184E6C4F575D4B92B509436A /* PomodoroManager.swift */,
+				1F361B96DCC740CAAB5B85FB /* TaskReminderManager.swift */,
+				F1A2B3C4D5E6F708192A3B4D /* ClarityPersistence.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A77777777777777777777777 /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				462572243F6E4131830956E9 /* AddTaskIntent.swift */,
+			);
+			path = Intents;
+			sourceTree = "<group>";
+		};
+		A88888888888888888888888 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CEC12AD4867B496B85D032F6 /* GlassCard.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A99999999999999999999999 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				C674E4B6BBC74CF7B8A608D6 /* TasksView.swift */,
+				68D1F3000FB14C8BA6011CE6 /* TaskRow.swift */,
+				5C62B9AD443A4B519D71B66B /* AddTaskView.swift */,
+			);
+			path = Tasks;
+			sourceTree = "<group>";
+		};
+		AAAA00000000000000000001 /* Pomodoro */ = {
+			isa = PBXGroup;
+			children = (
+				3388D13088A44B408F9F7AA0 /* PomodoroView.swift */,
+				E53CB10D1C52448A98DDCA56 /* PomodoroTimerView.swift */,
+			);
+			path = Pomodoro;
+			sourceTree = "<group>";
+		};
+		C8F1C4999E6E47109C711A2A = {
+			isa = PBXGroup;
+			children = (
+				A11111111111111111111111 /* Clarity */,
+				A22222222222222222222222 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D9442B6515D04E41A43B3069 /* Clarity */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B11111111111111111111112 /* Build configuration list for PBXNativeTarget "Clarity" */;
+			buildPhases = (
+				8224B53F87D44F9C877CF484 /* Sources */,
+				9BD191D231E0481E96FFCEE0 /* Frameworks */,
+				683BF86514BA4BF9BF44581B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Clarity;
+			productName = Clarity;
+			productReference = 4579C07681D3456296DE32A4 /* Clarity.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C8F1C4999E6E47109C711A2B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 2660;
+				TargetAttributes = {
+					D9442B6515D04E41A43B3069 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = B11111111111111111111111 /* Build configuration list for PBXProject "Clarity" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C8F1C4999E6E47109C711A2A;
+			productRefGroup = A22222222222222222222222 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D9442B6515D04E41A43B3069 /* Clarity */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		683BF86514BA4BF9BF44581B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				122FA7C20EF5405F9CFECC66 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8224B53F87D44F9C877CF484 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42ED12B7D88C4D888ECB7F58 /* ClarityApp.swift in Sources */,
+				0033B0A00A874C689A48B0EB /* AppState.swift in Sources */,
+				07EA01AB47A0490F9BD161B1 /* AppCommands.swift in Sources */,
+				0AE60587FBED474494D9ADFD /* ClarityPopoverView.swift in Sources */,
+				C577655353F7489DA354BDC0 /* ClarityTask.swift in Sources */,
+				48B5019830B24CD3B064EEBE /* ReminderInterval.swift in Sources */,
+				9FF7D6509DA8412FB7EE6E60 /* PomodoroSession.swift in Sources */,
+				C674E4B6BBC74CF7B8A608D5 /* TasksView.swift in Sources */,
+				68D1F3000FB14C8BA6011CE5 /* TaskRow.swift in Sources */,
+				5C62B9AD443A4B519D71B66A /* AddTaskView.swift in Sources */,
+				3388D13088A44B408F9F7A9F /* PomodoroView.swift in Sources */,
+				E53CB10D1C52448A98DDCA55 /* PomodoroTimerView.swift in Sources */,
+				CFED0530BCEC439593B52050 /* NotificationManager.swift in Sources */,
+				184E6C4F575D4B92B5094369 /* PomodoroManager.swift in Sources */,
+				1F361B96DCC740CAAB5B85FA /* TaskReminderManager.swift in Sources */,
+				F1A2B3C4D5E6F708192A3B4C /* ClarityPersistence.swift in Sources */,
+				462572243F6E4131830956E8 /* AddTaskIntent.swift in Sources */,
+				CEC12AD4867B496B85D032F5 /* GlassCard.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B01111111111111111111101 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 966D2R63P3;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B01111111111111111111102 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 966D2R63P3;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		B01111111111111111111103 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Clarity/Clarity.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Clarity/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.clarity.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B01111111111111111111104 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Clarity/Clarity.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Clarity/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.clarity.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B11111111111111111111111 /* Build configuration list for PBXProject "Clarity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B01111111111111111111101 /* Debug */,
+				B01111111111111111111102 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B11111111111111111111112 /* Build configuration list for PBXNativeTarget "Clarity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B01111111111111111111103 /* Debug */,
+				B01111111111111111111104 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C8F1C4999E6E47109C711A2B /* Project object */;
+}
