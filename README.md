@@ -32,6 +32,41 @@ Built entirely with SwiftUI, SwiftData, and App Intents on the current macOS SDK
 - macOS 14.0 or later (Liquid Glass appears automatically on macOS 26)
 - Xcode 16 or later (the project was built and verified with Xcode 26)
 
+## Installation
+
+### Homebrew
+
+```bash
+brew tap purvanshh/clarity
+brew install --cask clarity
+```
+
+### Allow the app to run (required — unsigned build)
+
+Clarity is distributed as an **ad-hoc signed** (unsigned) app because it isn't
+backed by an Apple Developer certificate. macOS Gatekeeper quarantines downloaded
+apps, so on first launch you may see *"Clarity can't be opened because Apple cannot
+check it for malicious software."*
+
+Remove the quarantine attribute and launch it:
+
+```bash
+xattr -cr /Applications/Clarity.app
+open -a Clarity
+```
+
+> `xattr -cr` strips the `com.apple.quarantine` attribute that macOS adds to every
+> downloaded file. It's a one-time step per download — you don't need to repeat it
+> unless you reinstall a fresh copy.
+
+To launch straight from the build folder (development), use the same command with
+the path to your `.app`:
+
+```bash
+xattr -cr "$(pwd)/DerivedData/Build/Products/Debug/Clarity.app"
+open "$(pwd)/DerivedData/Build/Products/Debug/Clarity.app"
+```
+
 ## Getting Started
 
 1. Clone the repository.
