@@ -1,0 +1,14 @@
+# Build artifacts
+.build/
+DerivedData/
+
+# Swift Package Manager generated workspace
+.swiftpm/
+Package.resolved
+
+# Xcode user state
+*.xcuserstate
+xcuserdata/
+
+# macOS
+.DS_Store
