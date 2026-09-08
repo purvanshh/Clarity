@@ -38,8 +38,11 @@ Built entirely with SwiftUI, SwiftData, and App Intents on the current macOS SDK
 
 ```bash
 brew tap purvanshh/clarity
+brew trust purvanshh/clarity   # Homebrew 6+ requires trusting third-party taps
 brew install --cask clarity
 ```
+
+> If `brew trust` isn't available on your Homebrew version, skip it.
 
 ### Allow the app to run (required — unsigned build)
 
