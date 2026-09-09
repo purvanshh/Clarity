@@ -36,29 +36,28 @@ struct AddTaskIntent: AppIntent {
             throw AddTaskIntentError.emptyTitle
         }
 
-        let container: ModelContainer
-        do {
-            container = try ClarityPersistence.makeContainer()
-        } catch {
-            throw AddTaskIntentError.persistenceFailed
-        }
-
-        let context = ModelContext(container)
         let interval = nudge.timeInterval
         let task = ClarityTask(
             title: trimmed,
             reminderEnabled: interval != nil,
             reminderInterval: interval
         )
-        context.insert(task)
 
+        let context: ModelContext
         do {
+            let container = try ClarityPersistence.makeContainer()
+            context = ModelContext(container)
+            context.insert(task)
             try context.save()
         } catch {
             throw AddTaskIntentError.persistenceFailed
         }
 
-        await TaskReminderManager.shared.syncReminder(for: task)
+        // Schedule the nudge only if notifications are already authorized. Never prompt
+        // from a headless App Intent: a permission dialog can't be presented here and would
+        // leave Siri waiting for a result that never arrives. If the user hasn't granted
+        // permission yet, the reminder is picked up the next time Clarity opens in the UI.
+        await TaskReminderManager.shared.syncReminder(for: task, promptIfNeeded: false)
         try? context.save()
 
         let dialog: IntentDialog

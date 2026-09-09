@@ -18,6 +18,14 @@ final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         Task { await refreshAuthorizationStatus() }
     }
 
+    /// True when notifications are already granted and can be scheduled without prompting.
+    var isAuthorized: Bool {
+        switch authorizationStatus {
+        case .authorized, .provisional, .ephemeral: return true
+        default: return false
+        }
+    }
+
     func refreshAuthorizationStatus() async {
         let settings = await center.notificationSettings()
         authorizationStatus = settings.authorizationStatus
@@ -61,15 +69,26 @@ final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     }
 
     /// Schedules a repeating local nudge. Replaces any existing request with the same id.
+    /// - Parameter promptIfNeeded: When `true` (default), prompts for authorization if the status is
+    ///   `.notDetermined`. When `false`, never prompts — it only schedules if authorization was already
+    ///   granted. Use `false` from a headless App Intent, where a permission prompt cannot be presented
+    ///   and would leave Siri waiting indefinitely.
     func scheduleRepeatingReminder(
         id: String,
         title: String,
         body: String,
-        interval: TimeInterval
+        interval: TimeInterval,
+        promptIfNeeded: Bool = true
     ) async -> Date? {
         guard interval >= 60 else { return nil }
-        let granted = await requestAuthorizationIfNeeded()
-        guard granted else { return nil }
+
+        if promptIfNeeded {
+            let granted = await requestAuthorizationIfNeeded()
+            guard granted else { return nil }
+        } else {
+            await refreshAuthorizationStatus()
+            guard isAuthorized else { return nil }
+        }
 
         cancelNotification(id: id)
 

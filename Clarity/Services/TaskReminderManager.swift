@@ -13,7 +13,9 @@ final class TaskReminderManager {
     /// Schedules or refreshes a task nudge.
     /// - Parameter force: When `true`, cancels and recreates the notification (create / interval change).
     ///   When `false`, keeps an existing pending notification so opening Clarity does not reset the timer.
-    func syncReminder(for task: ClarityTask, force: Bool = true) async {
+    /// - Parameter promptIfNeeded: When `false`, never presents a notification-permission prompt (used from
+    ///   headless App Intents so Siri isn't left waiting on a dialog that can't be shown).
+    func syncReminder(for task: ClarityTask, force: Bool = true, promptIfNeeded: Bool = true) async {
         let id = task.notificationIdentifier
 
         guard task.reminderEnabled,
@@ -37,7 +39,8 @@ final class TaskReminderManager {
             id: id,
             title: "Clarity",
             body: task.title,
-            interval: interval
+            interval: interval,
+            promptIfNeeded: promptIfNeeded
         )
         task.nextReminderDate = next
     }
