@@ -42,6 +42,20 @@ struct TaskRow: View {
             }
 
             Spacer(minLength: 4)
+
+            Button {
+                deleteTask()
+            } label: {
+                Image(systemName: "trash")
+                    .font(.system(size: 11, weight: .medium))
+                    .foregroundStyle(.secondary)
+                    .frame(width: 24, height: 24)
+                    .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .help("Delete task")
+            .accessibilityLabel("Delete task")
+            .opacity(isHovered ? 1 : 0.55)
         }
         .padding(.horizontal, 10)
         .padding(.vertical, 8)
