@@ -49,10 +49,14 @@ struct ClarityApp: App {
                         .environment(PomodoroManager.shared)
                         .onAppear {
                             appDelegate.appState = appState
+                            appDelegate.modelContainer = modelContainer
+                            NotificationManager.shared.configure()
                             Task {
-                                await TaskReminderManager.shared.rescheduleAll(
+                                // Ensure pending nudges exist without resetting their timers.
+                                await TaskReminderManager.shared.ensureAllReminders(
                                     in: modelContainer.mainContext
                                 )
+                                try? modelContainer.mainContext.save()
                                 PomodoroManager.shared.reconcileWithWallClock()
                             }
                         }
@@ -74,11 +78,12 @@ struct ClarityApp: App {
 
 final class ClarityAppDelegate: NSObject, NSApplicationDelegate {
     var appState: AppState?
+    var modelContainer: ModelContainer?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         NSApp.setActivationPolicy(.accessory)
-        // App Intents / App Shortcuts register automatically via AppShortcutsProvider.
-        // Do not manually talk to linkd — XPC failures there are OS-service issues.
+        // Required so task nudges appear while Clarity stays running in the menu bar.
+        NotificationManager.shared.configure()
     }
 
     func applicationDidBecomeActive(_ notification: Notification) {

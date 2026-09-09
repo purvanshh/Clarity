@@ -1,5 +1,6 @@
 import Foundation
 import SwiftData
+import UserNotifications
 
 @MainActor
 final class TaskReminderManager {
@@ -9,7 +10,10 @@ final class TaskReminderManager {
 
     private init() {}
 
-    func syncReminder(for task: ClarityTask) async {
+    /// Schedules or refreshes a task nudge.
+    /// - Parameter force: When `true`, cancels and recreates the notification (create / interval change).
+    ///   When `false`, keeps an existing pending notification so opening Clarity does not reset the timer.
+    func syncReminder(for task: ClarityTask, force: Bool = true) async {
         let id = task.notificationIdentifier
 
         guard task.reminderEnabled,
@@ -21,15 +25,21 @@ final class TaskReminderManager {
             return
         }
 
-        let next = Date().addingTimeInterval(interval)
-        task.nextReminderDate = next
+        if !force, let existing = await notifications.pendingRequest(id: id) {
+            // Keep the running schedule; only refresh the displayed next-fire time.
+            task.nextReminderDate = notifications.nextFireDate(for: existing)
+                ?? task.nextReminderDate
+                ?? Date().addingTimeInterval(interval)
+            return
+        }
 
-        await notifications.scheduleRepeatingReminder(
+        let next = await notifications.scheduleRepeatingReminder(
             id: id,
             title: "Clarity",
             body: task.title,
             interval: interval
         )
+        task.nextReminderDate = next
     }
 
     func cancelReminder(for task: ClarityTask) {
@@ -37,16 +47,26 @@ final class TaskReminderManager {
         task.nextReminderDate = nil
     }
 
-    func rescheduleAll(in context: ModelContext) async {
-        // Avoid Bool `#Predicate` KeyPath Sendable warnings under complete concurrency checking.
+    /// Ensures every active nudged task has a pending notification without resetting timers.
+    func ensureAllReminders(in context: ModelContext) async {
         let descriptor = FetchDescriptor<ClarityTask>()
         do {
-            let tasks = try context.fetch(descriptor).filter { $0.reminderEnabled && !$0.isCompleted }
-            for task in tasks {
-                await syncReminder(for: task)
+            let tasks = try context.fetch(descriptor)
+            let activeNudged = tasks.filter { $0.reminderEnabled && !$0.isCompleted }
+            let activeIDs = Set(activeNudged.map(\.notificationIdentifier))
+
+            // Drop orphaned notifications for deleted/completed tasks.
+            let pendingIDs = await notifications.allPendingTaskReminderIDs()
+            let orphans = pendingIDs.filter { !activeIDs.contains($0) }
+            if !orphans.isEmpty {
+                notifications.cancelNotifications(ids: orphans)
+            }
+
+            for task in activeNudged {
+                await syncReminder(for: task, force: false)
             }
         } catch {
-            // Persistence read failure — skip reschedule quietly.
+            // Persistence read failure — skip quietly.
         }
     }
 }
