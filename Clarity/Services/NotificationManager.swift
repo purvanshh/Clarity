@@ -2,13 +2,21 @@ import Foundation
 import UserNotifications
 
 @MainActor
-final class NotificationManager {
+final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     static let shared = NotificationManager()
 
     private let center = UNUserNotificationCenter.current()
     private(set) var authorizationStatus: UNAuthorizationStatus = .notDetermined
 
-    private init() {}
+    private override init() {
+        super.init()
+    }
+
+    /// Must be called once at launch so banners show while Clarity is running in the menu bar.
+    func configure() {
+        center.delegate = self
+        Task { await refreshAuthorizationStatus() }
+    }
 
     func refreshAuthorizationStatus() async {
         let settings = await center.notificationSettings()
@@ -37,15 +45,31 @@ final class NotificationManager {
         }
     }
 
+    func pendingRequest(id: String) async -> UNNotificationRequest? {
+        let pending = await center.pendingNotificationRequests()
+        return pending.first { $0.identifier == id }
+    }
+
+    func nextFireDate(for request: UNNotificationRequest) -> Date? {
+        if let intervalTrigger = request.trigger as? UNTimeIntervalNotificationTrigger {
+            return intervalTrigger.nextTriggerDate()
+        }
+        if let calendarTrigger = request.trigger as? UNCalendarNotificationTrigger {
+            return calendarTrigger.nextTriggerDate()
+        }
+        return nil
+    }
+
+    /// Schedules a repeating local nudge. Replaces any existing request with the same id.
     func scheduleRepeatingReminder(
         id: String,
         title: String,
         body: String,
         interval: TimeInterval
-    ) async {
-        guard interval >= 60 else { return }
+    ) async -> Date? {
+        guard interval >= 60 else { return nil }
         let granted = await requestAuthorizationIfNeeded()
-        guard granted else { return }
+        guard granted else { return nil }
 
         cancelNotification(id: id)
 
@@ -53,14 +77,16 @@ final class NotificationManager {
         content.title = title
         content.body = body
         content.sound = .default
+        content.interruptionLevel = .active
 
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: true)
         let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
 
         do {
             try await center.add(request)
+            return trigger.nextTriggerDate() ?? Date().addingTimeInterval(interval)
         } catch {
-            // Permission revoked or scheduling failed — fail quietly.
+            return nil
         }
     }
 
@@ -79,6 +105,7 @@ final class NotificationManager {
         content.title = title
         content.body = body
         content.sound = .default
+        content.interruptionLevel = .active
 
         let interval = max(fireDate.timeIntervalSinceNow, 1)
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: false)
@@ -99,5 +126,20 @@ final class NotificationManager {
     func cancelNotifications(ids: [String]) {
         center.removePendingNotificationRequests(withIdentifiers: ids)
         center.removeDeliveredNotifications(withIdentifiers: ids)
+    }
+
+    func allPendingTaskReminderIDs() async -> [String] {
+        let pending = await center.pendingNotificationRequests()
+        return pending.map(\.identifier).filter { $0.hasPrefix("clarity.task.") }
+    }
+
+    // MARK: - UNUserNotificationCenterDelegate
+
+    /// Menu-bar apps are always "running", so without this, macOS may suppress banners.
+    nonisolated func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification
+    ) async -> UNNotificationPresentationOptions {
+        [.banner, .list, .sound]
     }
 }
