@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/logo.png" width="160" alt="Clarity logo">
+</p>
+
 # Clarity
 
 A native macOS menu-bar utility for focused, distraction-free task management.
@@ -43,6 +47,33 @@ brew install --cask clarity
 ```
 
 > If `brew trust` isn't available on your Homebrew version, skip it.
+
+### Updating
+
+To update Clarity to the latest published release:
+
+```bash
+brew update
+brew upgrade --cask clarity
+```
+
+Check which version you have installed:
+
+```bash
+brew info --cask clarity
+```
+
+After an upgrade, if macOS flags the freshly downloaded copy, clear the quarantine
+attribute again (one-time per download) and relaunch:
+
+```bash
+xattr -cr /Applications/Clarity.app
+open -a Clarity
+```
+
+> Because Clarity is unsigned, it isn't auto-updating. Each new release is published
+> as a GitHub release on the `purvanshh/clarity` tap — `brew upgrade --cask clarity`
+> pulls the newest one whenever it's available.
 
 ### Allow the app to run (required — unsigned build)
 
