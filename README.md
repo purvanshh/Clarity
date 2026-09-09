@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="docs/logo.png" width="160" alt="Clarity logo">
-</p>
-
 # Clarity
 
 A native macOS menu-bar utility for focused, distraction-free task management.
