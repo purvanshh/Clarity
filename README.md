@@ -135,6 +135,19 @@ xcodebuild -project Clarity.xcodeproj \
 
 You can also pass a nudge interval so the task starts reminding you immediately.
 
+> **Note:** On a local, ad-hoc signed build (or a Personal Team), Siri may not yet
+> discover the intent by voice even though the app is properly installed. See
+> "Known limitations & roadmap" below.
+
+## Known limitations & roadmap
+
+- **Siri voice discovery** — the *Add Task to Clarity* App Intent is registered, but
+  Siri reliably discovers it only when the app is distributed with a proper App ID
+  and team signing. On a local build this can silently fail to appear in Siri.
+  Future enhancement: move the intent into an **Intents Extension** target (the only
+  intent configuration `pluginkit` can force-register) so Siri indexes it reliably,
+  regardless of the signing team.
+
 ## Architecture
 
 ```
