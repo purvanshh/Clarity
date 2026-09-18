@@ -93,13 +93,14 @@ struct NativeGlassBackground: View {
         ZStack {
             // Deep behind-window blur (desktop / Xcode visibly softens through).
             GlassVisualEffect(material: .hudWindow)
+                .opacity(0.52)
             // Lighter vibrancy layer for luminosity without darkening.
             GlassVisualEffect(material: .popover)
-                .opacity(0.45)
+                .opacity(0.35)
             // Soft system material wash — not an opaque dark overlay.
             Rectangle()
                 .fill(.ultraThinMaterial)
-                .opacity(0.35)
+                .opacity(0.25)
 
             if #available(macOS 26.0, *) {
                 // Liquid Glass refraction on the surface only; never receives hits.
