@@ -50,6 +50,12 @@ final class TaskReminderManager {
         task.nextReminderDate = nil
     }
 
+    /// Cancels by identifier alone, for callers that are about to delete the task and
+    /// therefore must not touch its model properties afterwards.
+    func cancelReminder(id: String) {
+        notifications.cancelNotification(id: id)
+    }
+
     /// Ensures every active nudged task has a pending notification without resetting timers.
     func ensureAllReminders(in context: ModelContext) async {
         let descriptor = FetchDescriptor<ClarityTask>()

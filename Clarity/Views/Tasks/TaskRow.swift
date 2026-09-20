@@ -134,7 +134,7 @@ struct TaskRow: View {
     }
 
     private func deleteTask() {
-        TaskReminderManager.shared.cancelReminder(for: task)
+        TaskReminderManager.shared.cancelReminder(id: task.notificationIdentifier)
         modelContext.delete(task)
         try? modelContext.save()
     }
